@@ -1,0 +1,24 @@
+{
+  "name": "railway-smtp-relay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SMTP relay for Railway: your app sends SMTP over Railway's private network, the relay delivers over HTTPS with Groundmail.",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "groundmail": "^0.25.1",
+    "mailparser": "^3.7.0",
+    "smtp-server": "^3.13.0"
+  },
+  "devDependencies": {
+    "nodemailer": "^6.10.1"
+  }
+}
