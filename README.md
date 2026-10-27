@@ -2,7 +2,7 @@
 
 Send email over SMTP from any Railway plan.
 
-Railway blocks outbound SMTP (ports 25, 465, 587 and 2525) on the Free, Trial and Hobby plans, so apps that send through an SMTP server time out with `Connection timeout` or `Network is unreachable`. This relay runs next to your app in the same Railway project. Your app sends SMTP to it over Railway's private network, which isn't blocked, and the relay delivers each message over HTTPS with [Groundmail](https://groundmail.dev).
+Railway blocks outbound SMTP (ports 25, 465, 587 and 2525) on the Free, Trial and Hobby plans, so apps that send through an SMTP server time out with `Connection timeout` or `Network is unreachable`. This relay runs next to your app in the same Railway project. Your app sends SMTP to it over Railway's private network, which isn't blocked, and the relay delivers each message over HTTPS with [Groundmail](https://groundmail.dev?utm_source=github&utm_medium=readme&utm_campaign=railway-smtp-relay).
 
 Nothing in your app changes except its SMTP settings. It works for anything that only speaks SMTP: Ghost, n8n, Django, Rails, Laravel, WordPress, Supabase Auth, Nodemailer, and so on.
 
@@ -12,7 +12,7 @@ your app ──SMTP (private network)──▶ smtp-relay ──HTTPS──▶ G
 
 ## Deploy
 
-1. [Create a Groundmail account](https://app.groundmail.dev/signup) (free for 3,000 emails a month), verify your sending domain, and create an API key.
+1. [Create a Groundmail account](https://app.groundmail.dev/signup?utm_source=github&utm_medium=readme&utm_campaign=railway-smtp-relay) (free for 3,000 emails a month), verify your sending domain, and create an API key.
 2. Deploy the template on Railway: [railway.com/deploy/groundmail-smtp-relay](https://railway.com/deploy/groundmail-smtp-relay). Paste your API key when it asks for `GROUNDMAIL_API_KEY`.
 3. Point your app's SMTP settings at the relay (below).
 
@@ -94,11 +94,11 @@ N8N_SMTP_PASS=${{smtp-relay.SMTP_PASSWORD}}
 
 If Groundmail rejects a message (for example, the From domain isn't verified), your app gets a `550` with the reason. Temporary problems return `451`, so your app's mail library retries.
 
-Every message shows up in your [Groundmail dashboard](https://app.groundmail.dev/emails) with its delivery status.
+Every message shows up in your [Groundmail dashboard](https://app.groundmail.dev/emails?utm_source=github&utm_medium=readme&utm_campaign=railway-smtp-relay) with its delivery status.
 
 ## Don't need SMTP?
 
-If you control the code, send with the [Groundmail API or SDKs](https://docs.groundmail.dev) directly. HTTPS works on every Railway plan and you skip the relay.
+If you control the code, send with the [Groundmail API or SDKs](https://docs.groundmail.dev?utm_source=github&utm_medium=readme&utm_campaign=railway-smtp-relay) directly. HTTPS works on every Railway plan and you skip the relay.
 
 ## Run locally
 
